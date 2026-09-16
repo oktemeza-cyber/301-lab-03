@@ -1,7 +1,7 @@
 package com.example.listycity3
-
+import androidx.compose.runtime.mutableStateListOf
 class CityRepository {
-    private val _cities = listOf(
+    private val _cities = mutableStateListOf(
         City("Edmonton", "AB"),
         City("Vancouver", "BC"),
         City("Toronto", "ON")
@@ -9,4 +9,9 @@ class CityRepository {
 
     val cities: List<City>
         get() = _cities
+
+    fun addCity(city: City){
+        _cities.add(city)
+    }
+
 }
