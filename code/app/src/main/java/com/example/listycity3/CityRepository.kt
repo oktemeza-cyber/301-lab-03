@@ -1,5 +1,7 @@
 package com.example.listycity3
 import androidx.compose.runtime.mutableStateListOf
+import kotlin.text.set
+
 class CityRepository {
     private val _cities = mutableStateListOf(
         City("Edmonton", "AB"),
@@ -10,8 +12,19 @@ class CityRepository {
     val cities: List<City>
         get() = _cities
 
+
+
     fun addCity(city: City){
         _cities.add(city)
     }
+
+    fun updateCity(oldCity: City, updatedCity: City) {
+        val index = _cities.indexOf(oldCity)
+        if (index != -1) {
+            _cities[index] = updatedCity
+        }
+    }
+
+
 
 }
